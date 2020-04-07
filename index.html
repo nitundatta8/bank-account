@@ -1,0 +1,55 @@
+  
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Movie Tickets</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Address Book</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <hr>
+          <h2>Register your account</h2>
+          <form id="account">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="group-control" required>
+            </div>
+            <div class="form-group">
+              <label for="initialDeposit">Initial Deposit</label>
+              <input type="number" id="initialDeposit" class="group-control" required>
+            </div>
+            <br>
+            <button type="submit" class="btn-primary">Submit</button>
+          </form>
+          
+          <form class="money">
+            <div class="form-group">
+              <label for="deposit">Deposit</label>
+              <input type="number" id="deposit" class="group-control">
+            </div>
+            <div class="form-group">
+              <label for="withdrawal">Withdrawal</label>
+              <input type="number" id="withdrawal" class="group-control" required>
+            </div>
+            <br>
+            <button type="submit" class="btn-primary">Show my balance</button>
+          </form>
+
+
+          
+          <div id="result">
+            <h3>Your Balance is </h3>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </body>
+</html>
