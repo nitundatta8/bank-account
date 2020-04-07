@@ -13,18 +13,23 @@ NewAccount.prototype.takeMoney = function(withdrawal) {
  
  
  $(document).ready(function(){
-   $("form#new-contact").submit(function(event) {
+   $("form#account").submit(function(event) {
       event.preventDefault();
-      var inputtedName = $("input#name").val();
-      var inputtedInitialDeposit = $("input#initialDeposit").val();
-      var newAccount = new NewAccount(inputtedName,inputtedInitialDeposit);
-      console.log(inputtedName, inputtedInitialDeposit)
-       
+      var name = $("input#name").val();
+      var balance = $("input#initialDeposit").val();
+      console.log(name, balance);
+      $("input#name").val("");
+      $("input#initialDeposit").val("");
+
+      //var newAccount = new NewAccount(inputtedName,inputtedInitialDeposit);
+      
+      // newAccount.addMoney(inputtedDeposit)
+      return account = new NewAccount(name, balance);
    });
-    $(".money").submit(function(event) {
-      event.preventDefault();
-      var inputtedDeposit = $("input#deposit").val();
-      var inputtedWithdrawal = $("input#withdrawal").val();
+   //  $(".money").submit(function(event) {
+   //    event.preventDefault();
+   //    var inputtedDeposit = $("input#deposit").val();
+   //    var inputtedWithdrawal = $("input#withdrawal").val();
        
-    });
+   //  });
  });
