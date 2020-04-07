@@ -12,7 +12,7 @@ NewAccount.prototype.takeMoney = function(withdrawal) {
 }
 
 function showTotalBalance(account) {
-   var totalBalance = "<h2 class='showBalance'>Name: " + account.name + "<br>Total Balance: " + account.balance +"</h2";
+   var totalBalance = "<h4 class='showBalance'>Name: " + account.name + "<br>Total Balance: " + account.balance +"</h4";
    $("#result").html(totalBalance);
  }
  var account ;
@@ -26,6 +26,7 @@ function showTotalBalance(account) {
       $("input#name").val('');
       $("input#initialDeposit").val('');
       account = new NewAccount(name, balance);
+      showTotalBalance(account);
 
       //var newAccount() = new NewAccount(inputtedName,inputtedInitialDeposit);
       
@@ -36,8 +37,8 @@ function showTotalBalance(account) {
       event.preventDefault();
       var inputtedDeposit = $("input#deposit").val();
       var inputtedWithdrawal = $("input#withdrawal").val();
-      if(inputtedDeposit !== '' && inputtedWithdrawal!=='' ){
-         alert("You are not allow to do both transaction togater.")
+      if(inputtedDeposit !== '' && inputtedWithdrawal !=='' ){
+         alert("You are not allow to do both transaction togather.")
       }
       $("input#deposit").val('');
       $("input#withdrawal").val('');
