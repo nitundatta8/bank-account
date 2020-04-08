@@ -1,50 +1,60 @@
+
+ var account ;
 function NewAccount(name, balance) {
    this.name = name;
    this.balance = balance;
 }
 
 NewAccount.prototype.addMoney = function(deposit) {
-   account.balance = deposit;
+   console.log(deposit);
+   this.balance += deposit;
+   return this.balance;
 }
 
 NewAccount.prototype.takeMoney = function(withdrawal) {
-   account.balance = withdrawal;
+  this.balance -= withdrawal;
+  console.log("===" + this.balance);
+  return this.balance;
 }
 
 function showTotalBalance(account) {
    var totalBalance = "<h4 class='showBalance'>Name: " + account.name + "<br>Total Balance: " + account.balance +"</h4";
    $("#result").html(totalBalance);
  }
- var account ;
+
  
  $(document).ready(function(){
    $("form#account").submit(function(event) {
       event.preventDefault();
       var name = $("input#name").val();
-      var balance = $("input#initialDeposit").val();
+      var balance = parseInt($("input#initialDeposit").val());
       console.log(name, balance);
       $("input#name").val('');
       $("input#initialDeposit").val('');
       account = new NewAccount(name, balance);
       showTotalBalance(account);
-
-      //var newAccount() = new NewAccount(inputtedName,inputtedInitialDeposit);
-      
-      // newAccount.addMoney(inputtedDeposit)
-      //return account = new NewAccount(name, balance);
    });
-    $(".money").submit(function(event) {
+    $("#money").submit(function(event) {
       event.preventDefault();
-      var inputtedDeposit = $("input#deposit").val();
-      var inputtedWithdrawal = $("input#withdrawal").val();
-      if(inputtedDeposit !== '' && inputtedWithdrawal !=='' ){
-         alert("You are not allow to do both transaction togather.")
+  
+      var inputtedDeposit = parseInt($("#deposit").val());
+      var inputtedWithdrawal = parseInt($("#withdrawal").val());
+      $("#deposit").val('');
+      $("#withdrawal").val('');
+      if((inputtedDeposit !== "" && !isNaN(inputtedDeposit)) &&
+      (inputtedWithdrawal !== "" && !isNaN(inputtedWithdrawal))){
+         alert("choose one option");
+         return;
       }
-      $("input#deposit").val('');
-      $("input#withdrawal").val('');
-      account.addMoney(inputtedDeposit);
-      account.takeMoney(inputtedWithdrawal);
+      
+      if(inputtedDeposit !== "" && !isNaN(inputtedDeposit)){
+         account.addMoney(inputtedDeposit);
+      }else{
+       account.takeMoney(inputtedWithdrawal);
+      }
       showTotalBalance(account);
        
     });
  });
+
+ 
